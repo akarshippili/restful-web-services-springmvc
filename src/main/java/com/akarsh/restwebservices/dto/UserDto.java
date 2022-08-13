@@ -1,13 +1,23 @@
 package com.akarsh.restwebservices.dto;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@JsonPropertyOrder({
+        "name",
+        "birthDate",
+        "id"
+})
 public class UserDto {
 
     private Long id;
+    @NotBlank
     private String name;
+
+    @NotNull
     private Date birthDate;
 
     public UserDto() {
