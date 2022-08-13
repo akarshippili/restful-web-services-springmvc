@@ -22,7 +22,7 @@ public class UserService {
     private ModelMapper mapper;
 
 
-    public UserDto getUserById(long id) throws Exception{
+    public UserDto getUserById(long id) throws UserNotFoundException {
         Optional<User> optionalUser = userRepo.getUserById(id);
         if(optionalUser.isPresent()){
             System.out.println(optionalUser.get());
