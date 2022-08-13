@@ -2,6 +2,7 @@ package com.akarsh.restwebservices.dao.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "User")
@@ -17,6 +18,9 @@ public class User {
 
     @Column
     private Date birthDate;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Post> posts;
 
     public User(Long id, String name, Date birthDate) {
         this.id = id;
@@ -54,6 +58,14 @@ public class User {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
     }
 
     @Override
