@@ -25,6 +25,11 @@ dependencies {
 	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.13.3'
 	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.9'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.7.2'
+
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-rest-hal-explorer
+	//implementation group: 'org.springframework.data', name: 'spring-data-rest-hal-explorer', version: '3.7.2'
 
 
 
