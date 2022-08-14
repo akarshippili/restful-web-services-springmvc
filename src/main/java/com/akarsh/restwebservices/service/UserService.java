@@ -21,6 +21,15 @@ public class UserService {
     @Autowired
     private ModelMapper mapper;
 
+    public boolean isValidUser(long id){
+        Optional<User> optionalUser = userRepo.getUserById(id);
+        if(optionalUser.isPresent()){
+            System.out.println(optionalUser.get());
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public UserDto getUserById(long id) throws UserNotFoundException {
         Optional<User> optionalUser = userRepo.getUserById(id);
