@@ -19,7 +19,7 @@ public class User {
     @Column
     private Date birthDate;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private Set<Post> posts;
 
     public User(Long id, String name, Date birthDate) {
