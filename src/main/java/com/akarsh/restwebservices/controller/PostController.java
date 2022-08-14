@@ -5,6 +5,8 @@ import com.akarsh.restwebservices.dto.UserDto;
 import com.akarsh.restwebservices.service.PostService;
 import com.akarsh.restwebservices.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -33,8 +35,9 @@ public class PostController {
     }
 
     @PostMapping(path = "/users/{id}/posts")
-    public PostDto createPost(@PathVariable long id, @Valid @RequestBody PostDto postDto){
-        return postService.createPost(id, postDto);
+    public ResponseEntity<PostDto> createPost(@PathVariable long id, @Valid @RequestBody PostDto postDto){
+        PostDto savedPost = postService.createPost(id, postDto);
+        return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
     }
 
 
