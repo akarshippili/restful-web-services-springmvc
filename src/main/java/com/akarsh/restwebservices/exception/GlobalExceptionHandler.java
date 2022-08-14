@@ -1,5 +1,6 @@
 package com.akarsh.restwebservices.exception;
 
+import com.akarsh.restwebservices.exception.custom.ForbiddenException;
 import com.akarsh.restwebservices.exception.custom.UserNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorDetails> handleUserNotFoundException(UserNotFoundException exception, WebRequest request){
         ErrorDetails errorDetails =  new ErrorDetails(exception.getMessage(), ((ServletWebRequest)request).getRequest().getRequestURI(),HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ErrorDetails> handleForbiddenException(ForbiddenException exception, WebRequest request){
+        ErrorDetails errorDetails =  new ErrorDetails(exception.getMessage(), ((ServletWebRequest)request).getRequest().getRequestURI(),HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>(errorDetails, HttpStatus.FORBIDDEN);
     }
 
     @Override
