@@ -52,4 +52,14 @@ public class UserService {
                 user -> mapper.map(user,UserDto.class)
         ).collect(Collectors.toList());
     }
+
+    public void remove(long userId){
+        Optional<User> optionalUser = userRepo.getUserById(userId);
+        if(optionalUser.isPresent()){
+            userRepo.deleteById(optionalUser.get().getId());
+        } else {
+            throw new UserNotFoundException("User with Id not found");
+        }
+    }
+
 }
