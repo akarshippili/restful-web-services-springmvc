@@ -22,7 +22,7 @@ dependencies {
 	implementation 'org.modelmapper:modelmapper:3.1.0'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml
-	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.13.3'
+	//implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.13.3'
 	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.9'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
