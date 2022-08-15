@@ -1,7 +1,5 @@
 package com.akarsh.restwebservices.dao.entity;
 
-import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import javax.persistence.*;
 
 @Entity

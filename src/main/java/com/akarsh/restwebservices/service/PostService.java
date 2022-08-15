@@ -37,6 +37,7 @@ public class PostService {
     public PostDto getPostByPostId(long userId, long postId){
         if(!userService.isValidUser(userId)) throw new UserNotFoundException(String.format("User with id %s Not Found",userId));
         Post post =  postRepo.getPostById(postId);
+        System.out.println(post);
         if(post.getUser().getId()!=userId) throw new ForbiddenException("Forbidden Resource");
         return mapper.map(post,PostDto.class);
     }
