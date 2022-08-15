@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Set;
 
 @JsonPropertyOrder({
         "name",
@@ -19,6 +20,8 @@ public class UserDto {
 
     @NotNull
     private Date birthDate;
+
+    private Set<PostDto> posts;
 
     public UserDto() {
     }
@@ -59,12 +62,21 @@ public class UserDto {
         this.birthDate = birthDate;
     }
 
+    public Set<PostDto> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<PostDto> posts) {
+        this.posts = posts;
+    }
+    
     @Override
     public String toString() {
         return "UserDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", birthDate=" + birthDate +
+                ", posts=" + posts +
                 '}';
     }
 }
