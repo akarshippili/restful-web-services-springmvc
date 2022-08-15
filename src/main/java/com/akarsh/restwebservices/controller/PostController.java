@@ -2,6 +2,7 @@ package com.akarsh.restwebservices.controller;
 
 import com.akarsh.restwebservices.dto.PostDto;
 import com.akarsh.restwebservices.dto.UserDto;
+import com.akarsh.restwebservices.exception.custom.UserNotFoundException;
 import com.akarsh.restwebservices.service.PostService;
 import com.akarsh.restwebservices.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class PostController {
 
     @GetMapping(path = "/users/{id}/posts")
     public List<PostDto> getPostByUser(@PathVariable("id") long id){
-        UserDto user = userService.getUserById(id);
-        return postService.getPostsByUser(user.getId());
+        if(!userService.isValidUser(id)) throw new UserNotFoundException("user Not Found");
+        return postService.getPostsByUser(id);
     }
 
     @GetMapping(path = "/users/{id}/posts/{postId}")
